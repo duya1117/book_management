@@ -1,5 +1,6 @@
 package com.hs.book_management.service;
 
+import com.hs.book_management.model.Author;
 import com.hs.book_management.model.Book;
 import com.hs.book_management.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,14 @@ public class BookService {
     }
 
     public Book create(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public Book update(Integer id, Book book) {
+        getById(id);
+        book.setId(id);
+
+
         return bookRepository.save(book);
     }
 
